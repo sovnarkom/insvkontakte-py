@@ -1,4 +1,4 @@
-VKontakte ClientAPI client library for Python 3.x
+VKontakte UserAPI client library for Python 3.x
 
 Somebugs Software Lab (http://somebugs.com)
 © 2009 Alexander Chichenin 
@@ -7,3 +7,24 @@ Contacts:
 
 sovnarkom@somebugs.com,
 http://twitter.com/sovnarkom
+
+———————————————————————————————————————————————————————————————————————————————
+
+How to use it:
+
+————————————————————————————————————————————————————
+
+from insvkontakte import InsVKontakteError
+from insvkontakte.formatters.json import JSON    # or another formatter
+from insvkontakte.userapi.client import ClientAPI # or another API
+
+api = ClientAPI(JSON)
+
+#sid = self.api.get_sid_using_email_and_password('<login>', '<password>') # + exception handling
+#or
+self.api.set_sid('<developer-sid|user-sid>')
+
+try:
+	friends = api.friends() # or anything
+except InsVKontakteError as e:
+	...
